@@ -8,6 +8,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+    --dirty-white: #e0dfda;
 }
 
 @media (prefers-color-scheme: dark) {
