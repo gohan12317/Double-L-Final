@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getProjects } from "@/lib/projects";
 
-export default function Home() {
+
+export default async function Home() {
+  const projects = await getProjects();
   return (
     <main>
       <section className="relative min-h-[600px] md:min-h-screen grid grid-cols-1 md:grid-cols-2">
@@ -103,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 md: ">
+      <section className="grid grid-cols-1 md:grid-cols-2 md: "> {/* Propaganda */}
         <Link href="/services">
           <div className="relative min-h-[300px] md:min-h-[480px] flex items-end group cursor-pointer">
             <img src="/Images/Main/next.avif" alt="Double L Builders project" 
@@ -118,7 +121,7 @@ export default function Home() {
 
           </div>
         </Link>
-        <Link href="/projects">
+        <Link href="/properties">
           <div className="relative min-h-[300px] md:min-h-[480px] flex items-end group cursor-pointer">
             <img src="/Images/Main/photo-1600596542815-ffad4c1539a9.avif" alt="Double L Builders project" 
             className="absolute inset-0 w-full h-full object-cover" />
@@ -136,7 +139,7 @@ export default function Home() {
       </section>
 
 
-      <section className="bg-[#111111] p-8 md:p-12 ">
+      <section className="bg-[#111111] p-8 md:p-12 "> {/* Services */}
       <div className="py-8">
           <h1 className="text-4xl font-bold text-white">Our Services</h1>
           <p className="text-white/55 text-sm leading-relaxed mb-6 max-w-sm">We offer a comprehensive range of services to meet all your real estate needs, from property sales and acquisitions to management and investment advisory. </p>
@@ -162,7 +165,33 @@ export default function Home() {
 
 
       </section>
+
+
+      
+      <section className="py-10 "> {/* Featured Projects*/}
+        <div className="p-10">
+              <h2 className="text-gray-300">Our work</h2>
+              <h1 className="text-4xl py-3">Featured Projects </h1>
+              <p className="text-gray-400 text-sm leading relaxed">A selection from our residentail, commercial, and design-build portfolio</p>
+        </div>
+
+        <div className="flex grid grid cols-2 md:grid-cols-3 px-10 gap-7">
+          {projects.map((project)=> (
+          <div key={project.id} className="relative flex items-end h-[460px]">
+            <div className="absolute inset-0 bg-black/65 transition-colors"></div>
+            <h2 className="absolute z-10 p-16">{project.title}</h2>
+
+                <Image
+                src={project.coverImage}
+                fill
+                className="absolute inset-0 object-cover" 
+                alt={""}            
+                />
+              <div className="absolute inset-0 z-group-hover:bg-black/55"></div>
+          </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
-
