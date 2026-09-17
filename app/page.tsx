@@ -4,11 +4,12 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2">
+      <section className="relative min-h-[600px] md:min-h-screen grid grid-cols-1 md:grid-cols-2">
         
-            <div className="flex flex-col items-center text-center min-h-full md:items-start md:text-left md:px-[10%] py-[15%]">          <div className="flex items-center gap-4 mb-8">
+          <div className="relative z-10 flex flex-col items-center text-center min-h-full md:items-start md:text-left md:px-[10%] py-[15%]">          
+            <div className="flex items-center gap-4 mb-8">
             <div className="hidden md:block w-10 h-px bg-white" />
-            <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/70">Double L Builders Inc. · Cebu, Philippines</p>
+            <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-white/70">Double L Builders Inc. · Cebu, Philippines</p>
           </div>
           <br></br>
 
@@ -29,9 +30,7 @@ export default function Home() {
 
         </div>
         
-        <div className="relative min-h-[400px] md:min-h-screen">
-
-          <div className="relative w-[100%] h-[100%] my-auto mx-auto">  
+        <div className="absolute inset-0 md:relative min-h-[400px]">
             <Image
               src="/Images/Main/hero.jpg"
               alt="Double L Builders project"
@@ -40,11 +39,11 @@ export default function Home() {
               className="object-cover"
               priority
             />
-          </div>
+            <div className="absolute inset-0 bg-black/60 md:hidden" />
         </div>
       </section>
 
-      <section className="bg-[var(--dirty-white)] backdrop-blur-md p-8 grid grid-cols-1 md:grid-cols-4 border border-gray-300 rounded-lg shadow-md gap-4">
+      <section className="bg-[var(--dirty-white)] backdrop-blur-md p-8 grid grid-cols-2 md:grid-cols-4 border border-gray-300 rounded-lg shadow-md gap-4">
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-4 text-black">15+</h2>
           <p className="text-gray-700">Years of Business</p>
@@ -106,7 +105,7 @@ export default function Home() {
 
       <section className="grid grid-cols-1 md:grid-cols-2 md: ">
         <Link href="/services">
-          <div className="relative min-h-[480px] flex items-end group cursor-pointer">
+          <div className="relative min-h-[300px] md:min-h-[480px] flex items-end group cursor-pointer">
             <img src="/Images/Main/next.avif" alt="Double L Builders project" 
             className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/65 group-hover:bg-black/55 transition-colors" />
@@ -120,7 +119,7 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/projects">
-          <div className="relative min-h-[480px] flex items-end group cursor-pointer">
+          <div className="relative min-h-[300px] md:min-h-[480px] flex items-end group cursor-pointer">
             <img src="/Images/Main/photo-1600596542815-ffad4c1539a9.avif" alt="Double L Builders project" 
             className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/65 group-hover:bg-black/55 transition-colors" />
@@ -135,6 +134,35 @@ export default function Home() {
           </div>
         </Link>
       </section>
+
+
+      <section className="bg-[#111111] p-8 md:p-12 ">
+      <div className="py-8">
+          <h1 className="text-4xl font-bold text-white">Our Services</h1>
+          <p className="text-white/55 text-sm leading-relaxed mb-6 max-w-sm">We offer a comprehensive range of services to meet all your real estate needs, from property sales and acquisitions to management and investment advisory. </p>
+      </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="bg-[#222222] p-4 md:p-6">
+            <h3 className="text-xl font-bold text-white mb-4">Design</h3>
+            <p className="text-white/55 text-sm leading-relaxed">Architectural design, 3D visualization, and construction documentation from concept to permit-ready drawings.</p>
+          </div>
+          <div className="bg-[#222222] p-4 md:p-6">
+            <h3 className="text-xl font-bold text-white mb-4">Construction</h3>
+            <p className="text-white/55 text-sm leading-relaxed">Residential, commercial, and design-build construction with rigorous quality control from groundbreaking to handover.</p>
+          </div>
+            <div className="bg-[#222222] p-4 md:p-6">
+              <h3 className="text-xl font-bold text-white mb-4">Real Estate</h3>
+              <p className="text-white/55 text-sm leading-relaxed">Licensced brokerage for lots, house & lots, commercial properties and rentals across Metro Cebu.</p>
+          </div>
+            <div className="bg-[#222222] p-4 md:p-6">
+              <h3 className="text-xl font-bold text-white mb-4">Property Management</h3>
+              <p className="text-white/55 text-sm leading-relaxed">End-to-end property management for owners — tenant placement, rent collection, maintenance, and reporting.</p>
+          </div>          
+        </div>
+
+
+      </section>
     </main>
   );
 }
+
