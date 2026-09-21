@@ -180,17 +180,18 @@ export default async function Home() {
           <div key={project.id} className="relative flex items-end h-[460px]">
             <div className="absolute inset-0 bg-black/65 transition-colors"></div>
             <h2 className="absolute z-10 p-16">{project.title}</h2>
-
                 <Image
                 src={project.coverImage}
                 fill
+                sizes="(max-width: 767px) 50vw, 33vw"
                 className="absolute inset-0 object-cover" 
-                alt={""}            
+                alt={"project.title"}            
                 />
               <div className="absolute inset-0 z-group-hover:bg-black/55"></div>
           </div>
           ))}
         </div>
+        
       </section>
     </main>
   );
