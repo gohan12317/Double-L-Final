@@ -68,7 +68,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="grid min-h-screen grid-cols-1 gap-8 bg-[#111111] p-8 md:grid-cols-2 md:p-12">
+      <section className="grid min-h-[650px] grid-cols-1 gap-8 bg-[#111111] p-8 md:grid-cols-2 md:p-12">
         <div className="flex items-center justify-center">
           <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.18)] backdrop-blur-sm">
             <div className="mb-4 h-px w-14 bg-white/60" />
