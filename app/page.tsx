@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getProjects } from "@/lib/projects";
+import { MapPin } from "lucide-react";
 
 
 export default async function Home() {
   const projects = await getProjects();
   return (
     <main>
-      <section className="relative min-h-[600px] md:min-h-screen grid grid-cols-1 md:grid-cols-2">
+      <section className="relative min-h-[600px] md:max-h-screen[300px] lg:min-h-screen grid grid-cols-1 md:grid-cols-2">
         
           <div className="relative z-10 flex flex-col items-center text-center min-h-full md:items-start md:text-left md:px-[10%] py-[15%]">          
             <div className="flex items-center gap-4 mb-8">
@@ -90,7 +91,7 @@ export default async function Home() {
 
 
 
-        <div className="flex flex-col justify-center text-center md:text-left">
+        <div className="flex flex-col justify-center text-center md:text-left md:px-10 xl:px-30">
           <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-white/60">
             Built to last
           </p>
@@ -142,24 +143,24 @@ export default async function Home() {
       <section className="bg-[#111111] p-8 md:p-12 "> {/* Services */}
       <div className="py-8">
           <h1 className="text-4xl font-bold text-white">Our Services</h1>
-          <p className="text-white/55 text-sm leading-relaxed mb-6 max-w-sm">We offer a comprehensive range of services to meet all your real estate needs, from property sales and acquisitions to management and investment advisory. </p>
+          <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-sm">We offer a comprehensive range of services to meet all your real estate needs, from property sales and acquisitions to management and investment advisory. </p>
       </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="bg-[#222222] p-4 md:p-6">
             <h3 className="text-xl font-bold text-white mb-4">Design</h3>
-            <p className="text-white/55 text-sm leading-relaxed">Architectural design, 3D visualization, and construction documentation from concept to permit-ready drawings.</p>
+            <p className="text-white/70 text-sm leading-relaxed">Architectural design, 3D visualization, and construction documentation from concept to permit-ready drawings.</p>
           </div>
           <div className="bg-[#222222] p-4 md:p-6">
             <h3 className="text-xl font-bold text-white mb-4">Construction</h3>
-            <p className="text-white/55 text-sm leading-relaxed">Residential, commercial, and design-build construction with rigorous quality control from groundbreaking to handover.</p>
+            <p className="text-white/70 text-sm leading-relaxed">Residential, commercial, and design-build construction with rigorous quality control from groundbreaking to handover.</p>
           </div>
             <div className="bg-[#222222] p-4 md:p-6">
               <h3 className="text-xl font-bold text-white mb-4">Real Estate</h3>
-              <p className="text-white/55 text-sm leading-relaxed">Licensced brokerage for lots, house & lots, commercial properties and rentals across Metro Cebu.</p>
+              <p className="text-white/70 text-sm leading-relaxed">Licensced brokerage for lots, house & lots, commercial properties and rentals across Metro Cebu.</p>
           </div>
             <div className="bg-[#222222] p-4 md:p-6">
               <h3 className="text-xl font-bold text-white mb-4">Property Management</h3>
-              <p className="text-white/55 text-sm leading-relaxed">End-to-end property management for owners — tenant placement, rent collection, maintenance, and reporting.</p>
+              <p className="text-white/70 text-sm leading-relaxed">End-to-end property management for owners — tenant placement, rent collection, maintenance, and reporting.</p>
           </div>          
         </div>
 
@@ -175,11 +176,17 @@ export default async function Home() {
               <p className="text-gray-400 text-sm leading relaxed">A selection from our residentail, commercial, and design-build portfolio</p>
         </div>
 
-        <div className="flex grid grid cols-2 md:grid-cols-3 px-10 gap-7">
+        <div className="flex grid md:grid-cols-2 lg:grid-cols-3 px-20 gap-5 md:gap-7 md:px-10">
           {projects.map((project)=> (
-          <div key={project.id} className="relative flex items-end h-[460px]">
+          <div key={project.id} className="relative flex items-end h-[400px] md:h-[400px] lg:[460px]">
             <div className="absolute inset-0 bg-black/65 transition-colors"></div>
-            <h2 className="absolute z-10 p-16">{project.title}</h2>
+            <div className="z-10 absolute bottom-12 left-4 xl:left-10 text-white">
+              <h2 className=" font-bold px-2 py-1">{project.title}</h2>
+                <div className="flex items-center gap-1 text-gray-300">
+                  <MapPin className="w-4 h-4" />
+                  <p className="">{project.location}</p>
+                </div>              
+            </div>
                 <Image
                 src={project.coverImage}
                 fill
@@ -187,6 +194,8 @@ export default async function Home() {
                 className="absolute inset-0 object-cover" 
                 alt={"project.title"}            
                 />
+                            <div className="absolute inset-0 bg-black/35 group-hover:bg-black/55 transition-colors" />
+
               <div className="absolute inset-0 z-group-hover:bg-black/55"></div>
           </div>
           ))}
