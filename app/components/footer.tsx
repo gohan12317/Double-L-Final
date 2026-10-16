@@ -60,7 +60,7 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-stone-300">
             <li>Cebu, Philippines</li>
             <li>hello@doublelbuilders.com</li>
-            <li>+63 (032) 000-0000</li>
+            <li>+63 918 488 8881</li>
           </ul>
         </div>
       </div>
